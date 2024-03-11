@@ -62,33 +62,6 @@ namespace PhysicsProjectileSimulator
             }
             return "";
         }
-
-        public string RoundToSF(float number, int sigFigs)
-        {
-            string numberString = number.ToString();
-            if (number > float.NegativeInfinity && number < float.PositiveInfinity)
-            {
-                // Check if the number is negative and contains a decimal point
-                if (number < 0 && numberString.Contains('.'))
-                {
-                    // Return the first five characters including the minus sign
-                    return numberString.Substring(0, Mathf.Min(numberString.Length, (sigFigs + 2)));
-                }
-                // Check if the number contains a decimal point or a negative sign
-                else if (numberString.Contains('.') || number < 0)
-                {
-                    // Return the first four characters
-                    return numberString.Substring(0, Mathf.Min(numberString.Length, (sigFigs + 1)));
-                }
-                else
-                {
-                    // Return the first three characters
-                    return numberString.Substring(0, Mathf.Min(numberString.Length, sigFigs));
-                }
-
-            }
-            return numberString;
-        }
     }
 }
 
